@@ -5,13 +5,15 @@
 .page-content,
 .post_content,
 .about,
-.contact
+.contact,
+.main_footer
   animation-duration: 0.7s
   animation-fill-mode: both
   animation-name: fadeInDown
 
-#banner, 
-.main_header
+#banner,
+.main_header,
+.copyright
   animation-delay: 0.5s
 
 .page-content,
@@ -20,12 +22,15 @@
 .contact
   animation-delay: 0.75s
 
-@-webkit-keyframes fadeInDown 
-  from 
+.main_footer
+  animation-delay: 1s
+
+@-webkit-keyframes fadeInDown
+  from
     opacity: 0
     transform: translateY(-20px)
-  
-  to 
+
+  to
     opacity: 1
     transform: translateY(0)
 

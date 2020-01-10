@@ -54,17 +54,17 @@ sass:
 
 #collections
 collections:
-  category:
+  cats:
     output: true
+    permalink: "/categories/:name/"
 
 #default layout for category collection
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
-      type: category
+      type: cats
     values:
-      layout: "category"
+      layout: category
 
 plugins:
   - jekyll-paginate
