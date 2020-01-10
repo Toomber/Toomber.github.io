@@ -1,3 +1,5 @@
+---
+---
 @import 'tools/normalize'
 @import 'tools/animate'
 @import 'syntax'
@@ -48,9 +50,17 @@ cite
   color: lighten($color_gray, 15%)
 
 .wrapper
-  width: 1440px
+  width: 1000px
   max-width: 90%
   margin: 0 auto
+
+.site
+  display: flex
+  min-height: 100vh
+  flex-direction: column
+
+.page-content
+  flex: 1
 
 .button_back
   color: $white

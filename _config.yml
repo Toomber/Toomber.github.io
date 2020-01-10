@@ -1,5 +1,5 @@
-logo: # add logo name
-title: Bef - Enjoy Freedom
+logo: ZacSite # add logo name
+title: ZacSite
 description: > # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
@@ -10,8 +10,8 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Banner settings
 video: mountains.mp4 # add banner video. Add your video file to the folder video
-banner-title: # add banner title
-banner-desc: # add banner description
+banner-title: Welcome!
+banner-desc: I made this.
 
 # Author settings
 author-pic: face.jpg # your photo
@@ -19,7 +19,7 @@ author-name: # your name
 about-author: # about author
 email: your-email@domain.com # your email
 phone: (496)-169-6557 # your pnone number
-website: https://dwayne.example.com # you website
+website: https://dwayne.example.com # your website
 
 # Social link
 google_url:    # add url link
@@ -48,9 +48,27 @@ plugins_dir:
   - jekyll-paginate
   - jekyll-sitemap
 
-gems:
+#sass directory
+sass:
+    sass_dir: assets/css/sass
+
+#collections
+collections:
+  category:
+    output: true
+
+#default layout for category collection
+defaults:
+  -
+    scope:
+      path: ""
+      type: category
+    values:
+      layout: "category"
+
+plugins:
   - jekyll-paginate
   - jekyll-sitemap
 
 include: [_pages]
-exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock"]
+exclude: ["node_modules", "yarn.lock"]
