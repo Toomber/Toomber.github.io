@@ -1,10 +1,12 @@
 // - - - - - - - - - - Banner Styles - - - - - - - - - - //
 
-#banner
+.banner
   position: relative
-  .content
+  display: flex
+  flex-direction: column
+  .titles
     padding: 12rem 0 12rem 0
-
+    flex: 1
     .title, .sub_title
       text-align: center
       color: $white
@@ -17,3 +19,7 @@
       margin: 0 auto 2rem auto
       line-height: 2.5rem
       font-style: italic
+
+.banner_slide
+  background-color: $dark_gray
+  flex: 1

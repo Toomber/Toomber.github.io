@@ -17,11 +17,19 @@
       color: $highlight
       font-weight: 400
   nav
-    a
+    .nav_a, .nav_as_text
       color: $white
       text-decoration: none
       margin-left: 2rem
-      transition: transform 0.3s ease
+      transition: color 0.3s ease, transform 0.3s ease
       display: inline-block
       &:hover
-        transform: scale(1.5)
+        color: $highlight_lighten
+        transform: translateY(-5px)
+
+    .nav_as_text
+      background: none
+      border: none
+      margin: 0
+      padding: 0
+      cursor: pointer

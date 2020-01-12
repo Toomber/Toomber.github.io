@@ -1,8 +1,10 @@
 
+<script src="{{site.baseurl}}/assets/js/category_reveal.js"></script>
+
 <header class="main_header">
   <a href="{{site.baseurl}}/" class="logo">{% if site.logo %}{{site.logo}}{% else %}B<span>ef</span>{% endif %}</a>
   <nav class="main_menu">
-    <a href="{{site.baseurl}}/categories/">Categories</a>
-    <a href="{{site.baseurl}}/about/">About</a>
+    <button class = nav_as_text onclick="reveal_categories()">Categories</button>
+    <a class = nav_a href="{{site.baseurl}}/about/">About</a>
   </nav>
 </header> <!-- End Section Header -->
