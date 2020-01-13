@@ -1,9 +1,13 @@
 
 function reveal_categories() {
-  var x = document.getElementById("revealable_div");
-  if (x.style.display === "none") {
-    x.style.display = "block";
+  var div = document.getElementById("revealable_div");
+  var button = document.getElementById("reveal_button");
+  button.classList.toggle('rotated');
+  if (div.style.flexGrow == 1) {
+    div.style.flexGrow = 0.001;
+    button.title = "Show Categories";
   } else {
-    x.style.display = "none";
+    div.style.flexGrow = 1;
+    button.title = "Hide Categories";
   }
 }
