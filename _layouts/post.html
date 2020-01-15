@@ -30,7 +30,7 @@ layout: default
         <div class="post_category">
           <span>Categories:</span>
           {% for category in page.categories %}
-          <a href="{{site.baseurl}}/categories/{{ category | downcase}}" class="category">{{ category }}</a>
+          <a href="{{site.baseurl}}/categories/{{ category | downcase | replace: " ", "-"}}" class="category">{{ category }}</a>
           {% endfor %}
         </div>
       </footer>
