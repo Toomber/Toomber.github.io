@@ -8,8 +8,8 @@ permalink: ':title/'
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
-# Banner settings
-video: mountains.mp4 # add banner video. Add your video file to the folder video
+# Home banner settings
+banner-video: mountains.mp4
 banner-title: Welcome!
 banner-desc: I made this.
 

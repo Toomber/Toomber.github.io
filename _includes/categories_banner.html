@@ -1,0 +1,30 @@
+<!-- check if there is a custom banner file for this catgeory -->
+{%- assign category_name = {{page.tags | first | downcase | replace: " ", "-"}} -%}
+
+{%- for static_file in site.static_files -%}
+  {%- capture string1 %}{{ static_file.path }}{% endcapture -%}
+  {%- capture string2 %}/assets/banners/{{category_name}}.mp4{% endcapture -%}
+  {%- capture string3 %}/assets/banners/{{category_name}}.jpg{% endcapture -%}
+  {%- if string1 == string2 or string1 == string3 -%}
+    {%- assign banner_exists = true -%}
+  {% endif %}
+{% endfor %}
+
+{% if page.banner-video %}
+  {% assign banner_file = page.banner-video %}
+{% elsif banner_exists == true %}
+  {% assign banner_file = category_name | append: ".mp4" %}
+{% else %}
+  {% assign banner_file = site.banner-video %}
+{% endif %}
+
+<section class="banner" data-vide-bg = "{{site.baseurl}}/assets/banners/{{ banner_file }}" data-vide-options= "posterType: jpg, loop: true, muted: false, position: 50% 50%">
+  <div class="titles">
+    <h1 class="title">{% if page.banner-title %}{{ page.banner-title }}{% else %}{{ page.tag }}{% endif %}</h1>
+    <h2 class="sub_title">{% if page.banner-desc %}{{ page.banner-desc }}{% else %} {% endif %}</h2>
+  </div>
+  <div class = "button_div" aria-hidden="true"> <button id = "reveal_button" class = "rotated" onclick="reveal_categories()" title = "Hide Categories"><i class="fa fa-angle-double-up"></i></button></div>
+  <div id="revealable_div" class = "banner_slide revealed">
+  {% include category_tags.html %}
+  </div>
+</section> <!-- End Section Banner -->
