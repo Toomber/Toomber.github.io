@@ -71,20 +71,54 @@ layout: default
 
   <section class="recent_box">
     <div class="post_wrapper">
-      <h2 class="recent_title">Recent posts</h2>
+      <h2 class="recent_title">Recent Posts</h2>
       <div class="recent_list">
         {% for post in site.posts offset:0 limit:6 %}
           {% if post.title %}
             <a href="{{ post.url | prepend: site.baseurl }}"
               class="recent_item"
               style="background-image: url( {{ "/assets/img/" | prepend: site.baseurl | append : post.img}} )">
-                <span>{{ post.title }}</span>
+                <span>{{ post.title | truncate: 65}}</span>
             </a>
           {% endif %}
         {% endfor %}
       </div>
     </div>
   </section> <!-- End Section Recent Box -->
+
+  <section class="recent_box">
+    <div class="post_wrapper">
+      <h2 class="recent_title">Similar Posts</h2>
+      <div class="recent_list">
+        {% assign post_count = 0 %}
+        {% for post in site.posts offset:0 %}
+          {% assign include = false %}
+          {% for post_category in post.categories %}
+            {% for page_category in page.categories %}
+              {% if post_category == page_category %}
+                {% assign include = true %}
+                {% assign post_count = post_count | plus: 1 %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+            {% if include == true %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          {% if post.title and include and post != page %}
+            <a href="{{ post.url | prepend: site.baseurl }}"
+              class="recent_item"
+              style="background-image: url( {{ "/assets/img/" | prepend: site.baseurl | append : post.img}} )">
+                <span>{{ post.title | truncate: 65}}</span>
+            </a>
+          {% endif %}
+          {% if post_count == 6 %}
+            {% break %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section> <!-- End Section Similar Posts -->
 
 </main> <!-- End Section Post Content -->
 
