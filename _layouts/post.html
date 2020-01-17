@@ -25,7 +25,6 @@ layout: default
           <span>Share:</span>
           <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}" title="Share on Twitter" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
           <a href="https://facebook.com/sharer.php?u={{ site.url }}{{ page.url }}" title="Share on Facebook" rel="nofollow" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-          <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" title="Share on Google+" rel="nofollow" target="_blank"><i class="fa fa-google" aria-hidden="true"></i></a>
         </div>
         <div class="post_category">
           <span>Categories:</span>
@@ -71,25 +70,9 @@ layout: default
 
   <section class="recent_box">
     <div class="post_wrapper">
-      <h2 class="recent_title">Recent Posts</h2>
+      <h2 class="recent_title">Recommended Posts</h2>
       <div class="recent_list">
-        {% for post in site.posts offset:0 limit:6 %}
-          {% if post.title %}
-            <a href="{{ post.url | prepend: site.baseurl }}"
-              class="recent_item"
-              style="background-image: url( {{ "/assets/img/" | prepend: site.baseurl | append : post.img}} )">
-                <span>{{ post.title | truncate: 65}}</span>
-            </a>
-          {% endif %}
-        {% endfor %}
-      </div>
-    </div>
-  </section> <!-- End Section Recent Box -->
-
-  <section class="recent_box">
-    <div class="post_wrapper">
-      <h2 class="recent_title">Similar Posts</h2>
-      <div class="recent_list">
+                <!-- Add posts if they share at least one category with the current post -->
         {% assign post_count = 0 %}
         {% for post in site.posts offset:0 %}
           {% assign include = false %}
@@ -97,7 +80,6 @@ layout: default
             {% for page_category in page.categories %}
               {% if post_category == page_category %}
                 {% assign include = true %}
-                {% assign post_count = post_count | plus: 1 %}
                 {% break %}
               {% endif %}
             {% endfor %}
@@ -106,6 +88,7 @@ layout: default
             {% endif %}
           {% endfor %}
           {% if post.title and include and post != page %}
+            {% assign post_count = post_count | plus: 1 %}
             <a href="{{ post.url | prepend: site.baseurl }}"
               class="recent_item"
               style="background-image: url( {{ "/assets/img/" | prepend: site.baseurl | append : post.img}} )">
@@ -116,6 +99,34 @@ layout: default
             {% break %}
           {% endif %}
         {% endfor %}
+                <!-- Add posts if there are less than 6 already, and they are different from those already added -->
+        {% if post_count <= 5 %}
+          {% for post in site.posts offset:0 %}
+            {% assign include = true %}
+            {% for post_category in post.categories %}
+              {% for page_category in page.categories %}
+                {% if post_category == page_category %}
+                  {% assign include = false %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+              {% if include == false %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+            {% if post.title and include and post != page %}
+              {% assign post_count = post_count | plus: 1 %}
+              <a href="{{ post.url | prepend: site.baseurl }}"
+                class="recent_item"
+                style="background-image: url( {{ "/assets/img/" | prepend: site.baseurl | append : post.img}} )">
+                  <span>{{ post.title | truncate: 65}}</span>
+              </a>
+            {% endif %}
+            {% if post_count == 6 %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+        {% endif %}
       </div>
     </div>
   </section> <!-- End Section Similar Posts -->
