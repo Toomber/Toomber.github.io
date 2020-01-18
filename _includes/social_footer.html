@@ -6,6 +6,9 @@
   {% if site.github_url %}
   <li><a href="{{ site.github_url }}" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
   {% endif %}
+  {% if site.thingiverse_url %}
+  <li><a href="{{ site.thingiverse_url }}" target="_blank">{% include thingiverse_icon.html %}</a></li>
+  {% endif %}
   {% if site.twitter_url %}
   <li><a href="{{ site.twitter_url }}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
   {% endif %}
