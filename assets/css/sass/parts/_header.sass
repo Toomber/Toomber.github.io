@@ -13,9 +13,19 @@
     font-size: 2rem
     text-decoration: none
     font-weight: 700
-    span
+    .logo_end, .logo_middle
+      float: left
+    .logo_middle
       color: $highlight
       font-weight: 400
+      width: 0px
+      overflow: hidden
+      transition: width 0.5s
+  .logo:hover
+    .logo_middle
+      width: 2.95rem
+
+
   nav
     .nav_a, .nav_as_text
       color: $white
