@@ -4,9 +4,9 @@ function reveal_categories() {
   var button = document.getElementById("reveal_button");
   div.classList.toggle('revealed');
   button.classList.toggle('rotated');
-  if (div.style.flexGrow == 1) {
-    button.title = "Show Categories";
-  } else {
+  if (div.classList.contains('revealed')) {
     button.title = "Hide Categories";
+  } else {
+    button.title = "Show Categories";
   }
 }
