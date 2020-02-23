@@ -30,6 +30,12 @@
 	{% endif %}
 	{% if page.img %}
 	  <meta content="{{ site.url }}/assets/img/{{ page.img }}" property="og:image">
+		<meta content="700" property="og:image:width">
+		<meta content="450" property="og:image:height">
+		{% if page.title %}
+		  <meta content="{{ page.title }}" property="og:image:alt">
+		{% endif %}
+
 	<!-- {% else %}
 	  <meta content="{{ site.url }}/assets/img/logo-high-resolution.png" property="og:image"> -->
 	{% endif %}
