@@ -7,8 +7,9 @@ url: "https://www.zacjrmann.com/" # the base hostname & protocol for your site, 
 
 # Home banner settings
 banner-video: mountains.mp4
+banner-script: banner_boids.js
 banner-title: Welcome!
-banner-desc: I made this.
+banner-desc: #I made this.
 
 # Author settings
 author-name: Zac Mann
