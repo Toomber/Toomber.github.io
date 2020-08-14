@@ -17,11 +17,13 @@
   {% assign banner_file = page.banner-video %}
 {% elsif banner_exists == true %}
   {% assign banner_file = category_name | append: ".mp4" %}
-{% else %}
+{% elsif site.banner-video %}
   {% assign banner_file = site.banner-video %}
+{% else %}
+  {% assign banner_file = site.banner-image %}
 {% endif %}
 
-<section class="banner" data-vide-bg = "{{site.baseurl}}/assets/banners/{{ banner_file }}" data-vide-options= "posterType: jpg, loop: true, muted: false, position: 50% 50%">
+<section class="banner" data-vide-bg = "{{site.baseurl}}/assets/img/banners/{{ banner_file }}" data-vide-options= "posterType: jpg, loop: true, muted: false, position: 50% 50%">
   <div class="titles">
     <h1 class="title">{% if page.banner-title %}{{ page.banner-title }}{% else %}{{ page.tag }}{% endif %}</h1>
     <h2 class="sub_title">{% if page.banner-desc %}{{ page.banner-desc }}{% else %} {% endif %}</h2>

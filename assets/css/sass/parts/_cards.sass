@@ -6,6 +6,8 @@
     position: relative
     float: left
     width: 32.333%
+    //padding-top = 32.333%*9/14
+    padding-top: 20.79%
     margin: 0 0.5% 1% 0.5%
     overflow: hidden
     transition: transform 0.4s
@@ -13,7 +15,10 @@
       text-decoration: none
     img
       width: 100%
-      vertical-align: middle
+      height: 100%
+      position: absolute
+      top: 0
+      object-fit: cover
       transition: transform 0.4s
     &:hover
       img

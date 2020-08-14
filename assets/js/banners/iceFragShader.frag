@@ -16,7 +16,7 @@ void main() {
   // uv.x += 0.001*cos(uv.y * 200.0);
 
   //vec2 uv1 = iResolution.x / iResolution.y > tex1Ratio ?
-  vec2 uv1 = vec2(gl_FragCoord.x / iResolution.x, 0.5*(1.0 - iResolution.y / iResolution.x / tex1Ratio) + gl_FragCoord.y / iResolution.x / tex1Ratio);
+  vec2 uv1 = vec2(gl_FragCoord.x / iResolution.x, 0.5*(1.0 - iResolution.y / iResolution.x / tex1Ratio) + gl_FragCoord.y / iResolution.x / tex1Ratio/10.0);
   uv1.y = 1.0-uv1.y;
 
   vec4 color = texture2D(tex0, uv);

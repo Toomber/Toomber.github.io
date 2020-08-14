@@ -1,7 +1,9 @@
 
 <script src="{{site.baseurl}}/assets/js/category_reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+<script src="{{site.baseurl}}/assets/js/banners/{{site.banner-script}}"></script>
 
-<section class="banner" data-vide-bg="{{site.baseurl}}/assets/img/banners/{{ site.banner-image }}" data-vide-options="posterType: jpg, loop: true, muted: false, position: 50% 50%">
+<section class="banner">
   <div class="titles">
     <h1 class="title">{% if site.banner-title %}{{ site.banner-title }}{% else %} {% endif %}</h1>
     <h2 class="sub_title">{% if site.banner-desc %}{{ site.banner-desc }}{% else %} {% endif %}</h2>

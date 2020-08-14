@@ -3,7 +3,7 @@ var banner;
 var boids = [];
 var urges = [];
 var mousePos;
-var boidNumber = 100;
+var boidNumber = 0;
 
 var diameter = 15;
 var maxSpeed = 4;
@@ -17,7 +17,7 @@ let iceTextureAspectRatio;
 function preload(){
   // load the shader
   iceShader = loadShader('assets/js/p5js/basic.vert','assets/js/banners/iceFragShader.frag');
-  iceTexture = loadImage('assets/img/ice-texture.jpg');
+  iceTexture = loadImage('assets/img/banners/ice-texture.jpg');
 }
 
 function setup() {

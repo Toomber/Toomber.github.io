@@ -6,7 +6,8 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.zacjrmann.com/" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Home banner settings
-banner-video: mountains.mp4
+banner-video:
+banner-image: ice-texture-stretched.jpg
 banner-script: banner_boids.js
 banner-title: Welcome!
 banner-desc: #I made this.
